@@ -4,23 +4,21 @@ Emacs REPL for Clojure Unity.
 
 ## Installation
 
-You can install easily with the amazing
-[el-get](https://github.com/dimitri/el-get/):
+`arcadia.el` is not currently published, so for now users must load it manually.
 
-```
-M-x el-get-install arcadia
-```
+`arcadia.el` requires
+[inf-clojure](https://github.com/clojure-emacs/inf-clojure), which can be
+installed in the normal way using `el-get` or `M-x list-packages`.
 
 ## Usage
 
-When visiting a file, or directory, inside a Unity project that has Arcadia
-installed you can *jack-in* and start the REPL with:
+1. Start a Unity project that includes Arcadia in its `Assets` directory.
+
+2. From emacs, run 
 
 ```
-M-x unity-jack-in
+arcadia-repl
 ```
 
-<!-- Local Variables: -->
-<!-- eval: (auto-fill-mode 1) -->
-<!-- fill-column: 80 -->
-<!-- End: -->
+A REPL should show up, with the same behavior and keybindings as
+inf-clojure. Some inf-clojure commands may not work as expected yet.

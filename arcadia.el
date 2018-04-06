@@ -1,35 +1,13 @@
 ;;; arcadia.el --- Clojure + Unity + Emacs!
-;;; 
 
-(require 'dash)
+(require 'inf-clojure)
 
-(defcustom unity-repl-command "ruby repl-client.rb"
-  "Command to use for arcadia-repl.")
+(defcustom arcadia-repl-port 5555
+  "Port to connect to Arcadia repl.")
 
-(defcustom unity-repl-command-path "Assets/Arcadia/Editor"
-  "Launch the REPL command in this relative path.")
-
-(defun unity-root-p (dir)
-  "Is this DIR the root of a Unity project?"
-  (-any? (lambda (f)
-           ;; TODO: Maybe this could be better?
-           (string-equal f "ProjectSettings"))
-         (directory-files dir)))
-
-(defun unity-find-root (start levels)
-  "Look upwards from the START directory to find the Unity root directory 
-and return its full path. Search for the number of LEVELS specified."
-  (cond ((= levels 0) nil)
-        ((unity-root-p start) start)
-        (t (unity-find-root
-            (expand-file-name ".." start) (- levels 1)))))
-
-(defun unity-jack-in ()
-  "Start the Arcadia REPL"
+(defun arcadia-repl ()
+  "Attempts to connect to a running Arcadia instance over the Arcadia socket-repl."
   (interactive)
-  (let ((default-directory
-          (concat (unity-find-root default-directory 10) "/"
-                  unity-repl-command-path "/")))
-    (run-lisp unity-repl-command)))
+  (inf-clojure-connect "localhost" arcadia-repl-port))
 
 (provide 'arcadia)
