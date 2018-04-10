@@ -1,6 +1,6 @@
 # arcadia.el
 
-Emacs REPL for Clojure Unity.
+Emacs REPL for [Arcadia](https://github.com/arcadia-unity/Arcadia), the integration of Clojure and Unity.
 
 ## Installation
 
