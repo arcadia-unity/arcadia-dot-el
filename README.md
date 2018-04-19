@@ -30,3 +30,5 @@ inf-clojure. Some inf-clojure commands may not work as expected yet.
 ```
 (advice-remove 'inf-clojure-eldoc-setup #'arcadia-inf-clojure-eldoc-setup-wrapper)
 ```
+
+To enable correct interaction with `.cljc` files, add `clojurec-mode` to the `inf-clojure-source-modes` `defcustom` var. 
