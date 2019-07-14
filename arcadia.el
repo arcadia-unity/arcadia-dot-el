@@ -2,7 +2,7 @@
 
 (require 'inf-clojure)
 
-(defcustom arcadia-repl-port 5555
+(defcustom arcadia-repl-port 37220
   "Port to connect to Arcadia repl.")
 
 (defun arcadia-repl ()
